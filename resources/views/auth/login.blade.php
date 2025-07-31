@@ -30,12 +30,12 @@
                                 <label for="email" class="form-label">Email</label>
                                 <div class="input-group input-group-lg">
                                     <span class="input-group-text">
-                                        <i class="fa fa-user-circle"></i>
+                                        <i class="fa fa-user"></i>
                                     </span>
                                     <input type="email" id="email" name="email"
                                         class="form-control @error('email') is-invalid @enderror"
                                         value="{{ old('email') }}" required autocomplete="email" autofocus
-                                        placeholder="you@example.com">
+                                        placeholder="Masukkan email">
                                 </div>
                                 @error('email')
                                     <div class="invalid-feedback d-block">
@@ -48,11 +48,11 @@
                                 <label for="password" class="form-label">Password</label>
                                 <div class="input-group input-group-lg">
                                     <span class="input-group-text">
-                                        <i class="fa fa-asterisk"></i>
+                                        <i class="fa fa-lock"></i>
                                     </span>
                                     <input type="password" id="password" name="password"
                                         class="form-control @error('password') is-invalid @enderror" required
-                                        autocomplete="current-password" placeholder="Your password">
+                                        autocomplete="current-password" placeholder="Masukkan password">
                                 </div>
                                 @error('password')
                                     <div class="invalid-feedback d-block">
