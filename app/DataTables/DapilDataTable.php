@@ -120,7 +120,7 @@ class DapilDataTable extends DataTable
                     ->sortable(false)
                     ->width(60)
                     ->addClass('text-center'),
-            Column::make('name')->title('Name')->sortable(false),
+            Column::make('name')->title('Nama')->sortable(false),
             Column::make('project.profile.name')->title('Project')->sortable(false),
             Column::make('project.periode.name')->title('Periode')->sortable(false),
             Column::computed('kabupaten')->title('Kabupaten/Kota')->sortable(false),

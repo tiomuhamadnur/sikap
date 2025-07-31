@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 
-use App\Models\Project;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Builder as QueryBuilder;
 use Yajra\DataTables\EloquentDataTable;
 use Yajra\DataTables\Html\Builder as HtmlBuilder;
@@ -12,14 +12,14 @@ use Yajra\DataTables\Html\Editor\Editor;
 use Yajra\DataTables\Html\Editor\Fields;
 use Yajra\DataTables\Services\DataTable;
 
-class ProjectDataTable extends DataTable
+class CategoryDataTable extends DataTable
 {
     public function dataTable(QueryBuilder $query): EloquentDataTable
     {
         return (new EloquentDataTable($query))
             ->addColumn('#', function ($item) {
-                $editRoute = route('project.update', $item->uuid);
-                $deleteRoute = route('project.destroy', $item->uuid);
+                $editRoute = route('category.update', $item->uuid);
+                $deleteRoute = route('category.destroy', $item->uuid);
                 $actionButton = "<div class='dropdown'>
                                     <button class='btn' data-bs-toggle='dropdown'>
                                         <i class='fa fa-pencil'></i>
@@ -27,7 +27,7 @@ class ProjectDataTable extends DataTable
                                     </button>
 
                                     <div class='dropdown-menu dropdown-menu-end'>
-                                        <a class='dropdown-item' href='#' data-bs-toggle='modal' data-bs-target='#editModal' data-url='{$editRoute}' data-party_id='{$item->party_id}' data-periode_id='{$item->periode_id}' data-profile_id='{$item->profile_id}' data-election_type_id='{$item->election_type_id}' data-start_date='{$item->start_date}' data-end_date='{$item->end_date}'>
+                                        <a class='dropdown-item' href='#' data-bs-toggle='modal' data-bs-target='#editModal' data-url='{$editRoute}' data-name='{$item->name}' data-code='{$item->code}'>
                                             <i class='fa fa-pencil'></i>
                                             Edit
                                         </a>
@@ -43,27 +43,19 @@ class ProjectDataTable extends DataTable
             ->rawColumns(['#']);
     }
 
-    public function query(Project $model): QueryBuilder
+    public function query(Category $model): QueryBuilder
     {
-        $query = $model->with([
-            'party',
-            'periode',
-            'profile',
-            'election_type',
-        ])->newQuery();
-
-        return $query;
+        return $model->newQuery();
     }
 
     public function html(): HtmlBuilder
     {
         return $this->builder()
-                    ->setTableId('project-table')
+                    ->setTableId('category-table')
                     ->columns($this->getColumns())
                     ->minifiedAjax()
                     ->pageLength(10)
                     ->lengthMenu([10, 50, 100, 250, 500, 1000])
-                    //->dom('Bfrtip')
                     ->orderBy([0, 'asc'])
                     ->selectStyleSingle()
                     ->buttons([
@@ -82,22 +74,17 @@ class ProjectDataTable extends DataTable
     {
         return [
             Column::computed('#')
-                    ->exportable(false)
-                    ->printable(false)
-                    ->sortable(false)
-                    ->width(60)
-                    ->addClass('text-center'),
-            Column::make('profile.name')->title('Profil')->sortable(false),
-            Column::make('party.name')->title('Partai')->sortable(false),
-            Column::make('periode.name')->title('Periode')->sortable(false),
-            Column::make('election_type.name')->title('Tipe Pemilihan')->sortable(false),
-            Column::make('start_date')->title('Tanggal Mulai'),
-            Column::make('end_date')->title('Tanggal Selesai'),
+                ->exportable(false)
+                ->printable(false)
+                ->width(60)
+                ->addClass('text-center'),
+            Column::make('name')->title('Name'),
+            Column::make('code')->title('Code'),
         ];
     }
 
     protected function filename(): string
     {
-        return 'Project_' . date('YmdHis');
+        return 'Category_' . date('YmdHis');
     }
 }

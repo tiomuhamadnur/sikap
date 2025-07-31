@@ -15,12 +15,12 @@ Adding 'smini-visible-block' to an element will show it (display: block) only wh
     <div class="bg-header-dark">
         <div class="content-header bg-white-5">
             <!-- Logo -->
-            <a class="fw-semibold text-white tracking-wide" href="/">
+            <a class="fw-bold text-white tracking-wide fs-2" href="{{ route('dashboard.index') }}">
                 <span class="smini-visible">
-                    PILKADA<span class="opacity-75">app</span>
+                    SIK<span class="opacity-50">AP</span>
                 </span>
                 <span class="smini-hidden">
-                    PILKADA<span class="opacity-75">app</span>
+                    SIK<span class="opacity-50">AP</span>
                 </span>
             </a>
             <!-- END Logo -->
@@ -95,7 +95,7 @@ Adding 'smini-visible-block' to an element will show it (display: block) only wh
                 <li class="nav-main-item">
                     <a class="nav-main-link{{ request()->is('election*') ? ' active' : '' }}"
                         href="{{ route('election.index') }}">
-                        <i class="nav-main-link-icon fa fa-bar-chart"></i>
+                        <i class="nav-main-link-icon fa fa-line-chart"></i>
                         <span class="nav-main-link-name">Hasil Pemilu</span>
                     </a>
                 </li>
@@ -215,6 +215,20 @@ Adding 'smini-visible-block' to an element will show it (display: block) only wh
                                 href="{{ route('role.index') }}">
                                 <i class="nav-main-link-icon fa fa-user-gear"></i>
                                 <span class="nav-main-link-name">Role</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link {{ request()->is('master-data/category*') ? ' active' : '' }}"
+                                href="{{ route('category.index') }}">
+                                <i class="nav-main-link-icon fa fa-bars"></i>
+                                <span class="nav-main-link-name">Category</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link {{ request()->is('master-data/status*') ? ' active' : '' }}"
+                                href="{{ route('status.index') }}">
+                                <i class="nav-main-link-icon fa fa-tags"></i>
+                                <span class="nav-main-link-name">Status</span>
                             </a>
                         </li>
                         <li class="nav-main-heading">Area</li>

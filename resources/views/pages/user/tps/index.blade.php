@@ -86,7 +86,10 @@
                             <select class="form-select" name="dapil_id" id="dapil_id" required>
                                 <option value="" selected disabled>- select dapil -</option>
                                 @foreach ($dapil as $item)
-                                    <option value="{{ $item->id }}">{{ $item->name }} ({{ $item->project->profile->name ?? 'N/A' }} {{ $item->project->periode->name ?? 'N/A' }})</option>
+                                    <option value="{{ $item->id }}">{{ $item->name }}
+                                        ({{ $item->project->profile->name ?? 'N/A' }}
+                                        {{ $item->project->periode->name ?? 'N/A' }})
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
@@ -95,7 +98,9 @@
                             <select class="form-select" name="desa_id" id="desa_id" required>
                                 <option value="" selected disabled>- select desa -</option>
                                 @foreach ($desa as $item)
-                                    <option value="{{ $item->id }}">{{ $item->name }} ({{ $item->code }})</option>
+                                    <option value="{{ $item->id }}">
+                                        {{ $item->name }} ({{ $item->code }}) - Kec. {{ $item->kecamatan->name ?? '#' }} - {{ $item->kecamatan->kabupaten->name ?? '#' }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
@@ -141,7 +146,10 @@
                             <select class="form-select" name="dapil_id" id="dapil_id_edit" required>
                                 <option value="" selected disabled>- select dapil -</option>
                                 @foreach ($dapil as $item)
-                                    <option value="{{ $item->id }}">{{ $item->name }} ({{ $item->project->profile->name ?? 'N/A' }} {{ $item->project->periode->name ?? 'N/A' }})</option>
+                                    <option value="{{ $item->id }}">{{ $item->name }}
+                                        ({{ $item->project->profile->name ?? 'N/A' }}
+                                        {{ $item->project->periode->name ?? 'N/A' }})
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
@@ -150,13 +158,16 @@
                             <select class="form-select" name="desa_id" id="desa_id_edit" required>
                                 <option value="" selected disabled>- select desa -</option>
                                 @foreach ($desa as $item)
-                                    <option value="{{ $item->id }}">{{ $item->name }} ({{ $item->code }})</option>
+                                    <option value="{{ $item->id }}">
+                                        {{ $item->name }} ({{ $item->code }}) - Kec. {{ $item->kecamatan->name ?? '#' }} - {{ $item->kecamatan->kabupaten->name ?? '#' }}
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="mb-3">
                             <label class="form-label required" for="address_edit">Address</label>
-                            <textarea class="form-control" name="address" id="address_edit" placeholder="Input address" required rows="4"></textarea>
+                            <textarea class="form-control" name="address" id="address_edit" placeholder="Input address" required
+                                rows="4"></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -191,12 +202,17 @@
                             <select class="form-select" name="dapil_id" id="dapil_id" required>
                                 <option value="" selected disabled>- select dapil -</option>
                                 @foreach ($dapil as $item)
-                                    <option value="{{ $item->id }}">{{ $item->name }} ({{ $item->project->profile->name ?? 'N/A' }} {{ $item->project->periode->name ?? 'N/A' }})</option>
+                                    <option value="{{ $item->id }}">{{ $item->name }}
+                                        ({{ $item->project->profile->name ?? 'N/A' }}
+                                        {{ $item->project->periode->name ?? 'N/A' }})
+                                    </option>
                                 @endforeach
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label required" for="file">File Import <a class="text-success" title="Download template" href="#" target="_blank"><i class="fa fa-file-excel"></i></a></label>
+                            <label class="form-label required" for="file">File Import <a class="text-success"
+                                    title="Download template" href="{{ asset('media/import/Template_Import_TPS.xlsx') }}"
+                                    target="_blank"><i class="fa fa-file-excel"></i></a></label>
                             <input type="file" class="form-control" id="file" name="file"
                                 placeholder="Input file import" autocomplete="off" accept=".xlsx" required>
                         </div>

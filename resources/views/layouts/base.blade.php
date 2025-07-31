@@ -13,7 +13,7 @@
     <meta name="robots" content="noindex, nofollow">
 
     <!-- Icons -->
-    <link rel="shortcut icon" href="{{ asset('media/favicons/favicon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('media/favicons/favicon.ico') }}">
     <link rel="icon" sizes="192x192" type="image/png" href="{{ asset('media/favicons/favicon-192x192.png') }}">
     <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('media/favicons/apple-touch-icon-180x180.png') }}">
 
@@ -37,15 +37,23 @@
             color: rgb(0, 116, 17);
             font-size: 0.75em;
         }
+
+        .ts-control, .ts-dropdown .option {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
     </style>
 
     <!-- jQuery (required for DataTables plugin) -->
     <script src="{{ asset('js/lib/jquery.min.js') }}"></script>
     <script src="{{ asset('js/plugins/sweetalert2/sweetalert2.all.js') }}"></script>
+    <script src="{{ asset('js/plugins/tom-select/js/tom-select.min.js') }}"></script>
     <script src="{{ asset('js/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
 
     <!-- CSS -->
     <link rel="stylesheet" href="{{ asset('assets/main-cbr0_KuO.css') }}">
+    <link rel="stylesheet" href="{{ asset('js/plugins/tom-select/css/tom-select.css') }}">
 
     <!-- JS -->
     <script type="module" src="{{ asset('assets/app-ByhcSUcv.js') }}"></script> <!-- Dashmix app.js -->

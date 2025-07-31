@@ -50,6 +50,7 @@ class ElectionDataTable extends DataTable
             'tps.desa',
             'tps.desa.kecamatan',
             'tps.desa.kecamatan.kabupaten',
+            'tps.desa.kecamatan.kabupaten.provinsi',
             'tps.dapil',
             'tps.dapil.project.profile',
             'tps.dapil.project.periode',
@@ -91,16 +92,17 @@ class ElectionDataTable extends DataTable
                     ->sortable(false)
                     ->width(60)
                     ->addClass('text-center'),
-            Column::make('tps.dapil.project.profile.name')->title('Profil Kandidat')->sortable(false),
+            Column::make('tps.dapil.project.profile.name')->title('Profil')->sortable(false),
+            Column::make('vote')->title('Suara')->sortable(false),
             Column::make('tps.name')->title('TPS')->sortable(false),
             Column::make('tps.desa.name')->title('Desa')->sortable(false),
             Column::make('tps.desa.kecamatan.name')->title('Kecamatan')->sortable(false),
-            Column::make('tps.desa.kecamatan.kabupaten.name')->title('Kabupaten')->sortable(false),
+            Column::make('tps.desa.kecamatan.kabupaten.name')->title('Kabupaten/Kota')->sortable(false),
+            Column::make('tps.desa.kecamatan.kabupaten.provinsi.name')->title('Provinsi')->sortable(false),
             Column::make('tps.dapil.name')->title('Dapil')->sortable(false),
-            Column::make('vote')->title('Suara')->sortable(false),
+            Column::make('tps.dapil.project.party.code')->title('Partai')->sortable(false),
             Column::make('vote_party')->title('Suara Partai')->sortable(false),
             Column::make('tps.dapil.project.periode.name')->title('Periode')->sortable(false),
-            Column::make('tps.dapil.project.party.code')->title('Partai')->sortable(false),
         ];
     }
 

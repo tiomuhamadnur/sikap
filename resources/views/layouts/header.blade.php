@@ -38,14 +38,6 @@
                         <a class="dropdown-item" href="javascript:void(0)">
                             <i class="far fa-fw fa-user me-1"></i> Profile
                         </a>
-                        <a class="dropdown-item d-flex align-items-center justify-content-between"
-                            href="javascript:void(0)">
-                            <span><i class="far fa-fw fa-envelope me-1"></i> Inbox</span>
-                            <span class="badge bg-primary rounded-pill">3</span>
-                        </a>
-                        <a class="dropdown-item" href="javascript:void(0)">
-                            <i class="far fa-fw fa-file-alt me-1"></i> Invoices
-                        </a>
                         <div role="separator" class="dropdown-divider"></div>
 
                         <!-- Toggle Side Overlay -->
@@ -71,7 +63,7 @@
             </div>
             <!-- END User Dropdown -->
 
-            <!-- Notifications Dropdown -->
+            {{-- <!-- Notifications Dropdown -->
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn btn-alt-secondary" id="page-header-notifications-dropdown"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -148,15 +140,15 @@
                     </div>
                 </div>
             </div>
-            <!-- END Notifications Dropdown -->
+            <!-- END Notifications Dropdown --> --}}
 
-            <!-- Toggle Side Overlay -->
+            {{-- <!-- Toggle Side Overlay -->
             <!-- Layout API, functionality initialized in Template._uiApiLayout() -->
             <button type="button" class="btn btn-alt-secondary" data-toggle="layout"
                 data-action="side_overlay_toggle">
                 <i class="far fa-fw fa-list-alt"></i>
             </button>
-            <!-- END Toggle Side Overlay -->
+            <!-- END Toggle Side Overlay --> --}}
         </div>
         <!-- END Right Section -->
     </div>
@@ -165,7 +157,7 @@
     <!-- Header Search -->
     <div id="page-header-search" class="overlay-header bg-header-dark">
         <div class="content-header">
-            <form class="w-100" action="/dashboard" method="POST">
+            <form class="w-100" action="#" method="POST">
                 @csrf
                 <div class="input-group">
                     <!-- Layout API, functionality initialized in Template._uiApiLayout() -->

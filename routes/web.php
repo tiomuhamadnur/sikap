@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\admin\CategoryController;
 use App\Http\Controllers\admin\DapilController;
 use App\Http\Controllers\admin\DesaController;
 use App\Http\Controllers\admin\ElectionController;
@@ -14,6 +15,7 @@ use App\Http\Controllers\admin\ProjectController;
 use App\Http\Controllers\admin\ProvinsiController;
 use App\Http\Controllers\admin\RelasiDapilController;
 use App\Http\Controllers\admin\RoleController;
+use App\Http\Controllers\admin\StatusController;
 use App\Http\Controllers\admin\TPSController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\DashboardController;
@@ -35,8 +37,14 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/project', ProjectController::class);
     Route::resource('/dapil', DapilController::class);
     Route::resource('/relasi-dapil', RelasiDapilController::class);
-    Route::resource('/election', ElectionController::class);
     Route::resource('/tps', TPSController::class);
+
+    Route::resource('/election', ElectionController::class);
+    Route::controller(ElectionController::class)->group(function () {
+        Route::post('/election/import', 'import')->name('election.import');
+        Route::post('/election/export-excel', 'export_excel')->name('election.export.excel');
+    });
+
     Route::controller(TPSController::class)->group(function () {
         Route::post('/tps/import', 'import')->name('tps.import');
         Route::post('/tps/export-excel', 'export_excel')->name('tps.export.excel');
@@ -46,6 +54,8 @@ Route::group(['middleware' => ['auth']], function () {
         Route::resource('/user', UserController::class);
         Route::resource('/gender', GenderController::class);
         Route::resource('/role', RoleController::class);
+        Route::resource('/category', CategoryController::class);
+        Route::resource('/status', StatusController::class);
 
         Route::resource('/provinsi', ProvinsiController::class);
         Route::resource('/kabupaten', KabupatenController::class);

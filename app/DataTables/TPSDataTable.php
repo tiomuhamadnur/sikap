@@ -51,6 +51,9 @@ class TPSDataTable extends DataTable
             'dapil.project.profile',
             'dapil.project.periode',
             'desa',
+            'desa.kecamatan',
+            'desa.kecamatan.kabupaten',
+            'desa.kecamatan.kabupaten.provinsi',
         ])->newQuery();
 
         return $query;
@@ -89,11 +92,14 @@ class TPSDataTable extends DataTable
                     ->width(60)
                     ->addClass('text-center'),
             Column::make('name')->title('Nama')->sortable(false),
-            Column::make('dapil.project.profile.name')->title('Profil Kandidat')->sortable(false),
+            Column::make('address')->title('Alamat')->sortable(false),
+            Column::make('dapil.project.profile.name')->title('Profil')->sortable(false),
             Column::make('dapil.project.periode.name')->title('Periode')->sortable(false),
             Column::make('dapil.name')->title('Dapil')->sortable(false),
             Column::make('desa.name')->title('Desa')->sortable(false),
-            Column::make('address')->title('Alamat')->sortable(false),
+            Column::make('desa.kecamatan.name')->title('Kecamatan')->sortable(false),
+            Column::make('desa.kecamatan.kabupaten.name')->title('Kabupaten/Kota')->sortable(false),
+            Column::make('desa.kecamatan.kabupaten.provinsi.name')->title('Provinsi')->sortable(false),
         ];
     }
 

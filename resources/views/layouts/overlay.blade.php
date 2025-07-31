@@ -14,8 +14,8 @@
 
                 <!-- User Info -->
                 <div class="ms-2">
-                    <a class="text-white fw-semibold" href="javascript:void(0)">Tio Muhamad Nur</a>
-                    <div class="text-white-75 fs-sm">Full Stack Developer</div>
+                    <a class="text-white fw-semibold" href="javascript:void(0)">{{ auth()->user()->name }}</a>
+                    <div class="text-white-75 fs-sm">{{ auth()->user()->email }}</div>
                 </div>
                 <!-- END User Info -->
 

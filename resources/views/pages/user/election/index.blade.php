@@ -32,7 +32,12 @@
                                     Filter
                                 </a>
                                 <a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal"
-                                    data-bs-target="#exportModal">
+                                    data-bs-target="#importModal">
+                                    <i class="fa fa-file-import"></i>
+                                    Import
+                                </a>
+                                <a class="dropdown-item" href="javascript:void(0)" data-bs-toggle="modal"
+                                    data-bs-target="#exportModal" data-url="{{ route('election.export.excel') }}">
                                     <i class="fa fa-file-export"></i>
                                     Export
                                 </a>
@@ -157,6 +162,39 @@
         </div>
     </div>
     <!-- END Edit Modal -->
+
+    <!-- Import Modal -->
+    <div class="modal modal-blur fade" id="importModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-fromleft" role="document">
+            <div class="modal-content">
+                <form action="{{ route('election.import') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    @method('POST')
+                    <div class="modal-header">
+                        <h5 class="modal-title">Form Import</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <label class="form-label required" for="file">File Import <a class="text-success" title="Download template" href="{{ asset('media/import/Template_Import_Hasil_Pemilu.xlsx') }}" target="_blank"><i class="fa fa-file-excel"></i></a></label>
+                            <input type="file" class="form-control" id="file" name="file"
+                                placeholder="Input file import" autocomplete="off" accept=".xlsx" required>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
+                            Cancel
+                        </a>
+                        <button type="submit" class="btn btn-primary ms-auto">
+                            <i class="fa fa-plus"></i>
+                            Submit
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- END Import Modal -->
 @endsection
 
 @section('javascript')

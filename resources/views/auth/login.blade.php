@@ -1,7 +1,7 @@
 @extends('auth.layouts.base')
 
 @section('header')
-    <title>Login | PILKADAapp</title>
+    <title>SIKAP - Login</title>
 @endsection
 
 @section('content')
@@ -15,9 +15,9 @@
                         <!-- Header -->
                         <div class="mb-2 text-center">
                             <a class="link-fx fw-bold fs-1" href="{{ route('dashboard.index') }}">
-                                <span class="text-dark">PILKADA</span><span class="text-primary">app</span>
+                                <span class="text-dark">SIK</span><span class="text-primary">AP</span>
                             </a>
-                            <p class="text-uppercase fw-bold fs-sm text-muted">Sign In</p>
+                            <p class="text-uppercase fw-bold fs-sm text-muted">Sistem Kelola Aspirasi Publik</p>
                         </div>
                         <!-- END Header -->
 
@@ -61,7 +61,7 @@
                                 @enderror
                             </div>
 
-                            <div class="d-flex justify-content-between align-items-center mb-4">
+                            {{-- <div class="d-flex justify-content-between align-items-center mb-4">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember"
                                         {{ old('remember') ? 'checked' : '' }}>
@@ -75,7 +75,7 @@
                                         {{ __('Forgot Password?') }}
                                     </a>
                                 @endif
-                            </div>
+                            </div> --}}
 
                             <div class="text-center">
                                 <button type="submit" class="btn btn-hero btn-primary w-100 py-2">
@@ -89,8 +89,7 @@
                     <div class="block-content bg-body">
                         <div class="d-flex justify-content-center text-center push">
                             <div class="col-sm-12 order-sm-2 mb-1 mb-sm-0 text-center">
-                                Crafted with <i class="fa fa-heart text-danger"></i> by <a
-                                    href="https://tideupindustries.com" class="fw-semibold" target="_blank">Tide Up Industries</a>
+                                Developed  by <a href="https://tideupindustries.com" class="fw-semibold" target="_blank">Tide Up Industries</a>
                             </div>
                         </div>
                     </div>

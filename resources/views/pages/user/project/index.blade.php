@@ -108,12 +108,12 @@
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label required" for="start_date">Start Date</label>
+                            <label class="form-label required" for="start_date">Tanggal Mulai</label>
                             <input type="date" class="form-control" id="start_date" name="start_date"
                                 placeholder="Input start date" autocomplete="off" required>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label required" for="end_date">End Date</label>
+                            <label class="form-label required" for="end_date">Tanggal Mulai</label>
                             <input type="date" class="form-control" id="end_date" name="end_date"
                                 placeholder="Input end date" autocomplete="off" required>
                         </div>
@@ -182,12 +182,12 @@
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label" for="start_date_edit">Start Date</label>
+                            <label class="form-label" for="start_date_edit">Tanggal Mulai</label>
                             <input type="date" class="form-control" id="start_date_edit" name="start_date"
                                 placeholder="Input start date" autocomplete="off">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label" for="end_dat_edite">End Date</label>
+                            <label class="form-label" for="end_dat_edite">Tanggal Selesai</label>
                             <input type="date" class="form-control" id="end_date_edit" name="end_date"
                                 placeholder="Input end date" autocomplete="off">
                         </div>
