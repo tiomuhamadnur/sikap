@@ -69,7 +69,7 @@ class ElectionDataTable extends DataTable
                     ->pageLength(10)
                     ->lengthMenu([10, 50, 100, 250, 500, 1000])
                     //->dom('Bfrtip')
-                    ->orderBy([0, 'asc'])
+                    ->orderBy([2, 'desc'])
                     ->selectStyleSingle()
                     ->buttons([
                         [
