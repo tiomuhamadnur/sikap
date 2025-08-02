@@ -57,12 +57,12 @@
                     <div class="block-content block-content-full">
                         <div class="table-responsive">
                             <table id="kecamatan_datatable" class="table table-bordered">
-                                <thead>
+                                <thead class="bg-gray">
                                     <tr>
                                         <th>Kecamatan</th>
-                                        <th class="d-none d-sm-table-cell" style="width: 30%;">Suara</th>
-                                        <th class="d-none d-sm-table-cell" style="width: 15%;">Suara Partai</th>
-                                        <th style="width: 15%;">Total</th>
+                                        <th>Suara</th>
+                                        <th>Suara Partai</th>
+                                        <th>Total</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -74,8 +74,8 @@
                                                     {{ $item->kecamatan_name }}
                                                 </a>
                                             </td>
-                                            <td class="d-none d-sm-table-cell">{{ $item->vote }}</td>
-                                            <td class="d-none d-sm-table-cell">{{ $item->vote_party }}</td>
+                                            <td>{{ $item->vote }}</td>
+                                            <td>{{ $item->vote_party }}</td>
                                             <td>{{ $item->total }}</td>
                                         </tr>
                                     @endforeach
@@ -96,12 +96,12 @@
                     <div class="block-content block-content-full">
                         <div class="table-responsive">
                             <table id="desa_datatable" class="table table-bordered">
-                                <thead>
+                                <thead class="bg-gray">
                                     <tr>
                                         <th>Desa</th>
-                                        <th class="d-none d-sm-table-cell" style="width: 30%;">Suara</th>
-                                        <th class="d-none d-sm-table-cell" style="width: 15%;">Suara Partai</th>
-                                        <th style="width: 15%;">Total</th>
+                                        <th>Suara</th>
+                                        <th>Suara Partai</th>
+                                        <th>Total</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -113,8 +113,8 @@
                                                     {{ $item->desa_name }}
                                                 </a>
                                             </td>
-                                            <td class="d-none d-sm-table-cell">{{ $item->vote }}</td>
-                                            <td class="d-none d-sm-table-cell">{{ $item->vote_party }}</td>
+                                            <td>{{ $item->vote }}</td>
+                                            <td>{{ $item->vote_party }}</td>
                                             <td>{{ $item->total }}</td>
                                         </tr>
                                     @endforeach
