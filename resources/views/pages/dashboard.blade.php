@@ -50,20 +50,15 @@
 
         <div class="row">
             @if ($kecamatan != null)
-                <div class="col-md-12 col-xl-12">
-                    <!-- Dynamic Table Responsive -->
-                    <div class="block block-rounded">
-                        <div class="block-header block-header-default">
-                            <h2>
-                                Hasil Suara {{ $kabupaten->type }} {{ $kabupaten->name }}
-                            </h2>
-                        </div>
-                        <div class="block-content block-content-full table-responsive">
-                            <!-- DataTables init on table by adding .js-dataTable-responsive class, functionality is initialized in js/pages/be_tables_datatables.min.js which was auto compiled from _js/pages/be_tables_datatables.js -->
-                            <table class="table table-bordered">
+                <div class="block block-rounded">
+                    <div class="block-header block-header-default">
+                        <h3>Hasil Suara - {{ $kabupaten->type }} {{ $kabupaten->name }}</h3>
+                    </div>
+                    <div class="block-content block-content-full">
+                        <div class="table-responsive">
+                            <table id="kecamatan_datatable" class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th class="text-center" style="width: 80px;">#</th>
                                         <th>Kecamatan</th>
                                         <th class="d-none d-sm-table-cell" style="width: 30%;">Suara</th>
                                         <th class="d-none d-sm-table-cell" style="width: 15%;">Suara Partai</th>
@@ -73,7 +68,6 @@
                                 <tbody>
                                     @foreach ($kecamatan as $item)
                                         <tr @if ($item->kecamatan_id == $kecamatan_id) class="bg-success" @endif>
-                                            <td class="text-center">{{ $loop->iteration }}</td>
                                             <td class="fw-semibold">
                                                 <a class="text-dark fw-bolder"
                                                     href="{{ route('dashboard.index', ['project_id' => $project_id, 'kabupaten_id' => $kabupaten_id, 'kecamatan_id' => $item->kecamatan_id]) }}">
@@ -89,27 +83,21 @@
                             </table>
                         </div>
                     </div>
-                    <!-- Dynamic Table Responsive -->
                 </div>
             @endif
         </div>
 
         <div class="row">
             @if ($desa != null)
-                <div class="col-md-12 col-xl-12">
-                    <!-- Dynamic Table Responsive -->
-                    <div class="block block-rounded">
-                        <div class="block-header block-header-default">
-                            <h2>
-                                Hasil Suara Kecamatan {{ $kecamatan_detail->name }}
-                            </h2>
-                        </div>
-                        <div class="block-content block-content-full table-responsive">
-                            <!-- DataTables init on table by adding .js-dataTable-responsive class, functionality is initialized in js/pages/be_tables_datatables.min.js which was auto compiled from _js/pages/be_tables_datatables.js -->
-                            <table class="table table-bordered">
+                <div class="block block-rounded">
+                    <div class="block-header block-header-default">
+                        <h3>Hasil Suara - Kecamatan {{ $kecamatan_detail->name }}</h3>
+                    </div>
+                    <div class="block-content block-content-full">
+                        <div class="table-responsive">
+                            <table id="desa_datatable" class="table table-bordered">
                                 <thead>
                                     <tr>
-                                        <th class="text-center" style="width: 80px;">#</th>
                                         <th>Desa</th>
                                         <th class="d-none d-sm-table-cell" style="width: 30%;">Suara</th>
                                         <th class="d-none d-sm-table-cell" style="width: 15%;">Suara Partai</th>
@@ -119,7 +107,6 @@
                                 <tbody>
                                     @foreach ($desa as $item)
                                         <tr @if ($item->desa_id == $desa_id) class="bg-success" @endif>
-                                            <td class="text-center">{{ $loop->iteration }}</td>
                                             <td class="fw-semibold">
                                                 <a class="text-dark fw-bolder"
                                                     href="{{ route('dashboard.index', ['project_id' => $project_id, 'kabupaten_id' => $kabupaten_id, 'kecamatan_id' => $kecamatan_id, 'desa_id' => $item->desa_id]) }}">
@@ -135,7 +122,6 @@
                             </table>
                         </div>
                     </div>
-                    <!-- Dynamic Table Responsive -->
                 </div>
             @endif
         </div>
@@ -150,4 +136,14 @@
 @endsection
 
 @section('javascript')
+    <script>
+        $(document).ready(function() {
+            $('#kecamatan_datatable').DataTable({
+                responsive: true
+            });
+            $('#desa_datatable').DataTable({
+                responsive: true
+            });
+        });
+    </script>
 @endsection
