@@ -34,6 +34,9 @@ Route::get('/home', function () {
 
 Route::group(['middleware' => ['auth']], function () {
     Route::resource('/dashboard', DashboardController::class);
+    Route::controller(DashboardController::class)->group(function () {
+        // Route::get('/election/kecamatan', 'getKecamatan')->name('election.get.kecamatan');
+    });
     Route::resource('/project', ProjectController::class);
     Route::resource('/dapil', DapilController::class);
     Route::resource('/relasi-dapil', RelasiDapilController::class);

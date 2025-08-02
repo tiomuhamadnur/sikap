@@ -86,6 +86,7 @@ class KabupatenDataTable extends DataTable
                     ->printable(false)
                     ->width(60)
                     ->addClass('text-center'),
+            Column::make('id')->title('ID'),
             Column::make('type')->title('Type'),
             Column::make('name')->title('Name'),
             Column::make('code')->title('Code'),

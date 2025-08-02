@@ -9,238 +9,145 @@
     <div class="content">
         <!-- Dashboard -->
         <div class="row">
-            <div class="col-md-6 col-xl-3">
-                <a class="block block-rounded block-link-pop" href="javascript:void(0)">
+            <div class="col-md-12 col-xl-12">
+                <form class="block block-rounded block-link-pop" action="{{ route('dashboard.index') }}" method="GET">
                     <div class="block-content block-content-full d-flex align-items-center justify-content-between">
-                        <div>
-                            <i class="fa fa-2x fa-arrow-up text-primary"></i>
-                        </div>
-                        <div class="ms-3 text-end">
-                            <p class="fs-3 fw-medium mb-0">
-                                + 30%
-                            </p>
-                            <p class="text-muted mb-0">
-                                Earnings
-                            </p>
-                        </div>
+                        <select class="form-select" name="project_id" id="project_id" required>
+                            <option value="" selected disabled>- silahkan pilih project -</option>
+                            @foreach ($project as $item)
+                                <option value="{{ $item->id }}" @selected($item->id == $project_id)>
+                                    {{ $item->profile->front_title ?? '' }} {{ $item->profile->name ?? '#' }}
+                                    {{ $item->profile->back_title ?? '' }} ({{ $item->periode->name ?? '#' }})
+                                </option>
+                            @endforeach
+                        </select>
+                        <button type="submit" class="btn btn-primary ms-2">Submit</button>
                     </div>
-                </a>
+                </form>
             </div>
-            <div class="col-md-6 col-xl-3">
-                <a class="block block-rounded block-link-pop" href="javascript:void(0)">
-                    <div class="block-content block-content-full d-flex align-items-center justify-content-between">
-                        <div>
-                            <i class="far fa-2x fa-user-circle text-success"></i>
-                        </div>
-                        <div class="ms-3 text-end">
-                            <p class="fs-3 fw-medium mb-0">
-                                +78%
-                            </p>
-                            <p class="text-muted mb-0">
-                                Users
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 col-xl-3">
-                <a class="block block-rounded block-link-pop" href="javascript:void(0)">
-                    <div class="block-content block-content-full d-flex align-items-center justify-content-between">
-                        <div class="me-3">
-                            <p class="fs-3 fw-medium mb-0">
-                                960
-                            </p>
-                            <p class="text-muted mb-0">
-                                Sales
-                            </p>
-                        </div>
-                        <div>
-                            <i class="fa fa-2x fa-chart-area text-danger"></i>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 col-xl-3">
-                <a class="block block-rounded block-link-pop" href="javascript:void(0)">
-                    <div class="block-content block-content-full d-flex align-items-center justify-content-between">
-                        <div class="me-3">
-                            <p class="fs-3 fw-medium mb-0">
-                                359
-                            </p>
-                            <p class="text-muted mb-0">
-                                Projects
-                            </p>
-                        </div>
-                        <div>
-                            <i class="fa fa-2x fa-box text-warning"></i>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 col-xl-3">
-                <a class="block block-rounded block-link-shadow bg-primary" href="javascript:void(0)">
-                    <div class="block-content block-content-full d-flex align-items-center justify-content-between">
-                        <div>
-                            <i class="fa fa-2x fa-arrow-alt-circle-up text-primary-lighter"></i>
-                        </div>
-                        <div class="ms-3 text-end">
-                            <p class="text-white fs-3 fw-medium mb-0">
-                                + 45%
-                            </p>
-                            <p class="text-white-75 mb-0">
-                                Earnings
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 col-xl-3">
-                <a class="block block-rounded block-link-shadow bg-success" href="javascript:void(0)">
-                    <div class="block-content block-content-full d-flex align-items-center justify-content-between">
-                        <div>
-                            <i class="far fa-2x fa-user text-success-light"></i>
-                        </div>
-                        <div class="ms-3 text-end">
-                            <p class="text-white fs-3 fw-medium mb-0">
-                                +98%
-                            </p>
-                            <p class="text-white-75 mb-0">
-                                Users
-                            </p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 col-xl-3">
-                <a class="block block-rounded block-link-shadow bg-danger" href="javascript:void(0)">
-                    <div class="block-content block-content-full d-flex align-items-center justify-content-between">
-                        <div class="me-3">
-                            <p class="text-white fs-3 fw-medium mb-0">
-                                450
-                            </p>
-                            <p class="text-white-75 mb-0">
-                                Sales
-                            </p>
-                        </div>
-                        <div>
-                            <i class="fa fa-2x fa-chart-line text-black-50"></i>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6 col-xl-3">
-                <a class="block block-rounded block-link-shadow bg-warning" href="javascript:void(0)">
-                    <div class="block-content block-content-full d-flex align-items-center justify-content-between">
-                        <div class="me-3">
-                            <p class="text-white fs-3 fw-medium mb-0">
-                                63
-                            </p>
-                            <p class="text-white-75 mb-0">
-                                Projects
-                            </p>
-                        </div>
-                        <div>
-                            <i class="fa fa-2x fa-boxes text-black-50"></i>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-md-6">
-                <a class="block block-rounded block-link-shadow" href="javascript:void(0)">
-                    <div class="block-content block-content-full">
-                        <div class="row text-center">
-                            <div class="col-4 border-end">
-                                <div class="py-3">
-                                    <div class="item item-circle bg-body-light mx-auto">
-                                        <i class="fa fa-briefcase text-primary"></i>
-                                    </div>
-                                    <p class="fs-3 fw-medium mt-3 mb-0">
-                                        61
-                                    </p>
-                                    <p class="text-muted mb-0">
-                                        Projects
+        </div>
+        <div class="row">
+            @if ($kabupaten_dapil != null)
+                @foreach ($kabupaten_dapil as $item)
+                    <div class="col-md-6 col-xl-3">
+                        <a class="block block-rounded block-link-shadow @if ($item->kabupaten_id == $kabupaten_id) bg-success @else bg-primary @endif"
+                            href="{{ route('dashboard.index', ['project_id' => $project_id, 'kabupaten_id' => $item->kabupaten->id]) }}">
+                            <div class="block-content block-content-full d-flex align-items-center justify-content-between">
+                                <div>
+                                    <i class="fa fa-2x fa-map text-white-75"></i>
+                                </div>
+                                <div class="ms-3 text-end">
+                                    <p class="text-white fw-bolder mb-0">
+                                        {{ $item->kabupaten->type ?? '-' }} {{ $item->kabupaten->name ?? '-' }}
                                     </p>
                                 </div>
                             </div>
-                            <div class="col-4 border-end">
-                                <div class="py-3">
-                                    <div class="item item-circle bg-body-light mx-auto">
-                                        <i class="fa fa-chart-line text-primary"></i>
-                                    </div>
-                                    <p class="fs-3 fw-medium mt-3 mb-0">
-                                        50
-                                    </p>
-                                    <p class="text-muted mb-0">
-                                        Sales
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="py-3">
-                                    <div class="item item-circle bg-body-light mx-auto">
-                                        <i class="fa fa-users text-primary"></i>
-                                    </div>
-                                    <p class="fs-3 fw-medium mt-3 mb-0">
-                                        15
-                                    </p>
-                                    <p class="text-muted mb-0">
-                                        Clients
-                                    </p>
-                                </div>
-                            </div>
+                        </a>
+                    </div>
+                @endforeach
+            @endif
+        </div>
+
+        <div class="row">
+            @if ($kecamatan != null)
+                <div class="col-md-12 col-xl-12">
+                    <!-- Dynamic Table Responsive -->
+                    <div class="block block-rounded">
+                        <div class="block-header block-header-default">
+                            <h2>
+                                Hasil Suara {{ $kabupaten->type }} {{ $kabupaten->name }}
+                            </h2>
+                        </div>
+                        <div class="block-content block-content-full table-responsive">
+                            <!-- DataTables init on table by adding .js-dataTable-responsive class, functionality is initialized in js/pages/be_tables_datatables.min.js which was auto compiled from _js/pages/be_tables_datatables.js -->
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center" style="width: 80px;">#</th>
+                                        <th>Kecamatan</th>
+                                        <th class="d-none d-sm-table-cell" style="width: 30%;">Suara</th>
+                                        <th class="d-none d-sm-table-cell" style="width: 15%;">Suara Partai</th>
+                                        <th style="width: 15%;">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($kecamatan as $item)
+                                        <tr @if ($item->kecamatan_id == $kecamatan_id) class="bg-success" @endif>
+                                            <td class="text-center">{{ $loop->iteration }}</td>
+                                            <td class="fw-semibold">
+                                                <a class="text-dark fw-bolder"
+                                                    href="{{ route('dashboard.index', ['project_id' => $project_id, 'kabupaten_id' => $kabupaten_id, 'kecamatan_id' => $item->kecamatan_id]) }}">
+                                                    {{ $item->kecamatan_name }}
+                                                </a>
+                                            </td>
+                                            <td class="d-none d-sm-table-cell">{{ $item->vote }}</td>
+                                            <td class="d-none d-sm-table-cell">{{ $item->vote_party }}</td>
+                                            <td>{{ $item->total }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                </a>
-            </div>
-            <div class="col-md-6">
-                <a class="block block-rounded bg-gd-sublime" href="javascript:void(0)">
-                    <div class="block-content block-content-full">
-                        <div class="row text-center">
-                            <div class="col-4 border-end border-black-op">
-                                <div class="py-3">
-                                    <div class="item item-circle bg-black-25 mx-auto">
-                                        <i class="fa fa-briefcase text-white"></i>
-                                    </div>
-                                    <p class="text-white fs-3 fw-medium mt-3 mb-0">
-                                        61
-                                    </p>
-                                    <p class="text-white-75 mb-0">
-                                        Projects
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-4 border-end border-black-op">
-                                <div class="py-3">
-                                    <div class="item item-circle bg-black-25 mx-auto">
-                                        <i class="fa fa-chart-line text-white"></i>
-                                    </div>
-                                    <p class="text-white fs-3 fw-medium mt-3 mb-0">
-                                        50
-                                    </p>
-                                    <p class="text-white-75 mb-0">
-                                        Sales
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="py-3">
-                                    <div class="item item-circle bg-black-25 mx-auto">
-                                        <i class="fa fa-users text-white"></i>
-                                    </div>
-                                    <p class="text-white fs-3 fw-medium mt-3 mb-0">
-                                        15
-                                    </p>
-                                    <p class="text-white-75 mb-0">
-                                        Clients
-                                    </p>
-                                </div>
-                            </div>
+                    <!-- Dynamic Table Responsive -->
+                </div>
+            @endif
+        </div>
+
+        <div class="row">
+            @if ($desa != null)
+                <div class="col-md-12 col-xl-12">
+                    <!-- Dynamic Table Responsive -->
+                    <div class="block block-rounded">
+                        <div class="block-header block-header-default">
+                            <h2>
+                                Hasil Suara Kecamatan {{ $kecamatan_detail->name }}
+                            </h2>
+                        </div>
+                        <div class="block-content block-content-full table-responsive">
+                            <!-- DataTables init on table by adding .js-dataTable-responsive class, functionality is initialized in js/pages/be_tables_datatables.min.js which was auto compiled from _js/pages/be_tables_datatables.js -->
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center" style="width: 80px;">#</th>
+                                        <th>Desa</th>
+                                        <th class="d-none d-sm-table-cell" style="width: 30%;">Suara</th>
+                                        <th class="d-none d-sm-table-cell" style="width: 15%;">Suara Partai</th>
+                                        <th style="width: 15%;">Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($desa as $item)
+                                        <tr @if ($item->desa_id == $desa_id) class="bg-success" @endif>
+                                            <td class="text-center">{{ $loop->iteration }}</td>
+                                            <td class="fw-semibold">
+                                                <a class="text-dark fw-bolder"
+                                                    href="{{ route('dashboard.index', ['project_id' => $project_id, 'kabupaten_id' => $kabupaten_id, 'kecamatan_id' => $kecamatan_id, 'desa_id' => $item->desa_id]) }}">
+                                                    {{ $item->desa_name }}
+                                                </a>
+                                            </td>
+                                            <td class="d-none d-sm-table-cell">{{ $item->vote }}</td>
+                                            <td class="d-none d-sm-table-cell">{{ $item->vote_party }}</td>
+                                            <td>{{ $item->total }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
                         </div>
                     </div>
-                </a>
+                    <!-- Dynamic Table Responsive -->
+                </div>
+            @endif
+        </div>
+
+        <div class="row">
+            <div class="col-md-12 col-xl-12">
+                <div class="card" id="kecamatan_chart"></div>
             </div>
         </div>
         <!-- END Dashboard -->
     </div>
-    <!-- END Page Content -->
+@endsection
+
+@section('javascript')
 @endsection
