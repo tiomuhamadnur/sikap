@@ -99,6 +99,20 @@ Adding 'smini-visible-block' to an element will show it (display: block) only wh
                         <span class="nav-main-link-name">Hasil Pemilu</span>
                     </a>
                 </li>
+                <li class="nav-main-item">
+                    <a class="nav-main-link{{ request()->is('visit*') ? ' active' : '' }}"
+                        href="{{ route('visit.index') }}">
+                        <i class="nav-main-link-icon fa fa-plane"></i>
+                        <span class="nav-main-link-name">Kunjungan</span>
+                    </a>
+                </li>
+                <li class="nav-main-item">
+                    <a class="nav-main-link{{ request()->is('issue*') ? ' active' : '' }}"
+                        href="{{ route('issue.index') }}">
+                        <i class="nav-main-link-icon fa fa-bug"></i>
+                        <span class="nav-main-link-name">Isu-isu</span>
+                    </a>
+                </li>
 
                 {{-- <li class="nav-main-heading">Pelayanan</li> --}}
                 {{-- @Admin
@@ -288,6 +302,14 @@ Adding 'smini-visible-block' to an element will show it (display: block) only wh
                                 href="{{ route('profile.index') }}">
                                 <i class="nav-main-link-icon fa fa-address-card"></i>
                                 <span class="nav-main-link-name">Profil Kandidat</span>
+                            </a>
+                        </li>
+                        <li class="nav-main-heading">Kunjungan</li>
+                        <li class="nav-main-item">
+                            <a class="nav-main-link {{ request()->is('master-data/visit-type*') ? ' active' : '' }}"
+                                href="{{ route('visit-type.index') }}">
+                                <i class="nav-main-link-icon fa fa-newspaper"></i>
+                                <span class="nav-main-link-name">Tipe Kunjungan</span>
                             </a>
                         </li>
                     </ul>

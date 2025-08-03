@@ -26,19 +26,24 @@
                 </form>
             </div>
         </div>
+
         <div class="row">
             @if ($kabupaten_dapil != null)
                 @foreach ($kabupaten_dapil as $item)
                     <div class="col-md-6 col-xl-3">
                         <a class="block block-rounded block-link-shadow @if ($item->kabupaten_id == $kabupaten_id) bg-success @else bg-primary @endif"
-                            href="{{ route('dashboard.index', ['project_id' => $project_id, 'kabupaten_id' => $item->kabupaten->id]) }}">
+                            href="{{ route('dashboard.index', ['project_id' => $project_id, 'kabupaten_id' => $item->kabupaten_id]) }}"
+                            title="Suara: {{ $item->vote }} | Suara Partai: {{ $item->vote_party }}">
                             <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                                 <div>
                                     <i class="fa fa-2x fa-map text-white-75"></i>
                                 </div>
                                 <div class="ms-3 text-end">
-                                    <p class="text-white fw-bolder mb-0">
-                                        {{ $item->kabupaten->type ?? '-' }} {{ $item->kabupaten->name ?? '-' }}
+                                    <p class="text-white fs-3 fw-medium mb-0">
+                                        {{ $item->total ?? null }}
+                                    </p>
+                                    <p class="text-white-75 fw-bolder mb-0">
+                                        {{ $item->kabupaten_type ?? null }} {{ $item->kabupaten_name ?? '-' }}
                                     </p>
                                 </div>
                             </div>
@@ -127,6 +132,42 @@
         </div>
 
         <div class="row">
+            @if ($tps != null)
+                <div class="block block-rounded">
+                    <div class="block-header block-header-default">
+                        <h3>Hasil Suara - Desa {{ $desa_detail->name }}</h3>
+                    </div>
+                    <div class="block-content block-content-full">
+                        <div class="table-responsive">
+                            <table id="tps_datatable" class="table table-bordered">
+                                <thead class="bg-gray">
+                                    <tr>
+                                        <th>TPS</th>
+                                        <th>Suara</th>
+                                        <th>Suara Partai</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($tps as $item)
+                                        <tr>
+                                            <td class="text-dark fw-bolder">
+                                                {{ $item->tps_name }}
+                                            </td>
+                                            <td>{{ $item->vote }}</td>
+                                            <td>{{ $item->vote_party }}</td>
+                                            <td>{{ $item->total }}</td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            @endif
+        </div>
+
+        <div class="row">
             <div class="col-md-12 col-xl-12">
                 <div class="card" id="kecamatan_chart"></div>
             </div>
@@ -142,6 +183,9 @@
                 responsive: true
             });
             $('#desa_datatable').DataTable({
+                responsive: true
+            });
+            $('#tps_datatable').DataTable({
                 responsive: true
             });
         });

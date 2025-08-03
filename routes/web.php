@@ -6,6 +6,8 @@ use App\Http\Controllers\admin\DesaController;
 use App\Http\Controllers\admin\ElectionController;
 use App\Http\Controllers\admin\ElectionTypeController;
 use App\Http\Controllers\admin\GenderController;
+use App\Http\Controllers\admin\IssueController;
+use App\Http\Controllers\admin\IssuePhotoController;
 use App\Http\Controllers\admin\KabupatenController;
 use App\Http\Controllers\admin\KecamatanController;
 use App\Http\Controllers\admin\PartyController;
@@ -18,6 +20,9 @@ use App\Http\Controllers\admin\RoleController;
 use App\Http\Controllers\admin\StatusController;
 use App\Http\Controllers\admin\TPSController;
 use App\Http\Controllers\admin\UserController;
+use App\Http\Controllers\admin\VisitController;
+use App\Http\Controllers\admin\VisitPhotoController;
+use App\Http\Controllers\admin\VisitTypeController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -40,7 +45,12 @@ Route::group(['middleware' => ['auth']], function () {
     Route::resource('/project', ProjectController::class);
     Route::resource('/dapil', DapilController::class);
     Route::resource('/relasi-dapil', RelasiDapilController::class);
+
     Route::resource('/tps', TPSController::class);
+    Route::controller(TPSController::class)->group(function () {
+        Route::post('/tps/import', 'import')->name('tps.import');
+        Route::post('/tps/export-excel', 'export_excel')->name('tps.export.excel');
+    });
 
     Route::resource('/election', ElectionController::class);
     Route::controller(ElectionController::class)->group(function () {
@@ -48,10 +58,11 @@ Route::group(['middleware' => ['auth']], function () {
         Route::post('/election/export-excel', 'export_excel')->name('election.export.excel');
     });
 
-    Route::controller(TPSController::class)->group(function () {
-        Route::post('/tps/import', 'import')->name('tps.import');
-        Route::post('/tps/export-excel', 'export_excel')->name('tps.export.excel');
-    });
+    Route::resource('/visit', VisitController::class);
+    Route::resource('/visit-photo', VisitPhotoController::class);
+
+    Route::resource('/issue', IssueController::class);
+    Route::resource('/issue-photo', IssuePhotoController::class);
 
     Route::group(['prefix' => 'master-data',], function () {
         Route::resource('/user', UserController::class);
@@ -72,5 +83,7 @@ Route::group(['middleware' => ['auth']], function () {
         Route::resource('/periode', PeriodeController::class);
         Route::resource('/election-type', ElectionTypeController::class);
         Route::resource('/profile', ProfileController::class);
+
+        Route::resource('/visit-type', VisitTypeController::class);
     });
 });
