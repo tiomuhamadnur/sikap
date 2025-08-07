@@ -175,9 +175,7 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
-                            Cancel
-                        </a>
+                        <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">Cancel</a>
                         <button type="submit" class="btn btn-primary ms-auto">
                             <i class="fa fa-pencil"></i>
                             Update
