@@ -11,7 +11,7 @@ return new class extends Migration
         Schema::create('visits', function (Blueprint $table) {
             $table->id();
             $table->uuid('uuid')->unique();
-            $table->string('name')->nullable();
+            $table->text('name')->nullable();
             $table->date('date')->nullable();
             $table->bigInteger('visit_type_id')->unsigned()->nullable();
             $table->bigInteger('project_id')->unsigned()->nullable();

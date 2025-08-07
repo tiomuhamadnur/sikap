@@ -16,6 +16,7 @@
         "laravel/ui": "^4.6",
         "livewire/livewire": "^3.6",
         "maatwebsite/excel": "^3.1",
+        "mchev/banhammer": "^2.4",
         "simplesoftwareio/simple-qrcode": "^4.2",
         "yajra/laravel-datatables": "12.0"
     },

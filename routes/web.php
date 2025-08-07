@@ -16,6 +16,7 @@ use App\Http\Controllers\admin\ProfileController;
 use App\Http\Controllers\admin\ProjectController;
 use App\Http\Controllers\admin\ProvinsiController;
 use App\Http\Controllers\admin\RelasiDapilController;
+use App\Http\Controllers\admin\RequestController;
 use App\Http\Controllers\admin\RoleController;
 use App\Http\Controllers\admin\StatusController;
 use App\Http\Controllers\admin\TPSController;
@@ -63,6 +64,8 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::resource('/issue', IssueController::class);
     Route::resource('/issue-photo', IssuePhotoController::class);
+
+    Route::resource('/request', RequestController::class);
 
     Route::group(['prefix' => 'master-data',], function () {
         Route::resource('/user', UserController::class);

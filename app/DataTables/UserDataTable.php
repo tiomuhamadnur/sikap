@@ -40,13 +40,19 @@ class UserDataTable extends DataTable
 
                 return $actionButton;
             })
+            ->addColumn('project', function ($item) {
+                return
+                    ($item->project->profile->front_title ?? '') . ' ' .
+                    ($item->project->profile->name ?? '') . ' ' .
+                    ($item->project->profile->back_title ?? '');
+            })
             ->rawColumns(['#']);
     }
 
     public function query(User $model): QueryBuilder
     {
         $query = $model
-            ->with(['role', 'gender'])
+            ->with(['role', 'gender', 'project.profile'])
             ->newQuery();
 
         return $query;
@@ -80,6 +86,7 @@ class UserDataTable extends DataTable
             Column::make('phone')->title('Phone'),
             Column::make('gender.name')->title('Gender'),
             Column::make('role.name')->title('Role'),
+            Column::make('project')->title('Project'),
         ];
     }
 

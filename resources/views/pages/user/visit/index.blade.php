@@ -89,11 +89,8 @@
                                 @endforeach
                             </select>
                         </div>
-                        <div class="mb-3">
-                            <label class="form-label required" for="name">Agenda Kunjungan</label>
-                            <input type="text" class="form-control" id="name" name="name"
-                                placeholder="Input agenda" autocomplete="off" required>
-                        </div>
+                            <label class="form-label required" for="name">Hasil Kunjungan</label>
+                            <textarea class="form-control" name="name" id="name" placeholder="Input hasil kunjungan" rows="6" required></textarea>
                         <div class="mb-3">
                             <label class="form-label required" for="date">Tanggal</label>
                             <input type="date" class="form-control" id="date" name="date"
@@ -117,6 +114,11 @@
                         <div class="mb-3">
                             <label class="form-label" for="remark">Catatan (jika ada)</label>
                             <textarea class="form-control" name="remark" id="remark" placeholder="Input catatan" rows="4"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label optional" for="photo">Photo</label>
+                            <input type="file" class="form-control" id="photo" name="photo"
+                                placeholder="Input photo" autocomplete="off">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -165,9 +167,8 @@
                             </select>
                         </div>
                         <div class="mb-3">
-                            <label class="form-label required" for="name_edit">Agenda Kunjungan</label>
-                            <input type="text" class="form-control" id="name_edit" name="name"
-                                placeholder="Input agenda" autocomplete="off" required>
+                            <label class="form-label required" for="name_edit">Hasil Kunjungan</label>
+                            <textarea class="form-control" name="name" id="name_edit" placeholder="Input hasil kunjungan" rows="6" required></textarea>
                         </div>
                         <div class="mb-3">
                             <label class="form-label required" for="date_edit">Tanggal</label>
@@ -192,6 +193,11 @@
                         <div class="mb-3">
                             <label class="form-label" for="remark_edit">Catatan (jika ada)</label>
                             <textarea class="form-control" name="remark" id="remark_edit" placeholder="Input catatan" rows="4"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label optional" for="photo_edit">Photo</label>
+                            <input type="file" class="form-control" id="photo_edit" name="photo"
+                                placeholder="Input photo" autocomplete="off">
                         </div>
                     </div>
                     <div class="modal-footer">

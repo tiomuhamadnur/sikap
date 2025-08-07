@@ -41,6 +41,8 @@ class ProjectController extends Controller
             'election_type_id' => 'numeric|required',
             'start_date' => 'date|required',
             'end_date' => 'date|required|gte:start_date',
+            'expired_date' => 'date|required',
+            'about' => 'string|required',
         ]);
 
         Project::updateOrCreate($data, $data);
@@ -68,6 +70,8 @@ class ProjectController extends Controller
             'election_type_id' => 'numeric|required',
             'start_date' => 'date|required',
             'end_date' => 'date|required|gte:start_date',
+            'expired_date' => 'date|required',
+            'about' => 'string|required',
         ]);
 
         $data->update($rawData);

@@ -70,6 +70,19 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="row mb-4">
+                                <div class="col-12 col-md-12">
+                                    <label class="form-label">Project</label>
+                                    <select class="form-select js-select2" name="project_id" id="project_id">
+                                        <option value="" selected>- no project -</option>
+                                        @foreach ($project as $item)
+                                            <option value="{{ $item->id }}" @selected(old('project_id', $user->project_id) == $item->id)>
+                                                {{ $item->profile->name ?? 'N/A' }} - ({{ $item->periode->name ?? 'N/A' }})
+                                            </option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
                         </form>
                         <!-- END Form Grid with Labels -->
                     </div>

@@ -86,6 +86,29 @@
                             <input type="text" class="form-control" id="back_title" name="back_title"
                                 placeholder="Input back title" autocomplete="off">
                         </div>
+                        <div class="mb-3">
+                            <label class="form-label optional" for="phone">Phone</label>
+                            <input type="text" class="form-control" id="phone" name="phone"
+                                placeholder="Input phone" autocomplete="off">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label optional" for="email">Email</label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                placeholder="Input email" autocomplete="off">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label required" for="description">Description</label>
+                            <textarea class="form-control" name="description" id="description" rows="5" placeholder="Input description profile" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label optional" for="address">Address</label>
+                            <textarea class="form-control" name="address" id="address" rows="5" placeholder="Input address"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label required" for="photo">Photo</label>
+                            <input type="file" class="form-control" id="photo" name="photo"
+                                placeholder="Input photo" autocomplete="off" required accept="image/*">
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
@@ -129,6 +152,29 @@
                             <input type="text" class="form-control" id="back_title_edit" name="back_title"
                                 placeholder="Input back title" autocomplete="off">
                         </div>
+                        <div class="mb-3">
+                            <label class="form-label required" for="phone_edit">Phone</label>
+                            <input type="text" class="form-control" id="phone_edit" name="phone"
+                                placeholder="Input phone" autocomplete="off" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label optional" for="email_edit">Email</label>
+                            <input type="email" class="form-control" id="email_edit" name="email"
+                                placeholder="Input email" autocomplete="off">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label required" for="description_edit">Description</label>
+                            <textarea class="form-control" name="description" id="description_edit" rows="5" placeholder="Input description profile" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label optional" for="address_edit">Address</label>
+                            <textarea class="form-control" name="address" id="address_edit" rows="5" placeholder="Input address"></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label optional" for="photo_edit">Photo</label>
+                            <input type="file" class="form-control" id="photo_edit" name="photo"
+                                placeholder="Input photo" autocomplete="off" accept="image/*">
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
@@ -154,11 +200,19 @@
                 var name = $(e.relatedTarget).data('name');
                 var front_title = $(e.relatedTarget).data('front_title');
                 var back_title = $(e.relatedTarget).data('back_title');
+                var phone = $(e.relatedTarget).data('phone');
+                var email = $(e.relatedTarget).data('email');
+                var description = $(e.relatedTarget).data('description');
+                var address = $(e.relatedTarget).data('address');
 
                 document.getElementById("editForm").action = url;
                 $('#name_edit').val(name);
                 $('#front_title_edit').val(front_title);
                 $('#back_title_edit').val(back_title);
+                $('#phone_edit').val(phone);
+                $('#email_edit').val(email);
+                $('#description_edit').val(description);
+                $('#address_edit').val(address);
             });
         });
     </script>

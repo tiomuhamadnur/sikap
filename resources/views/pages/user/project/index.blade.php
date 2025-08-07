@@ -117,6 +117,15 @@
                             <input type="date" class="form-control" id="end_date" name="end_date"
                                 placeholder="Input end date" autocomplete="off" required>
                         </div>
+                        <div class="mb-3">
+                            <label class="form-label required" for="expired_date">Tanggal Expired Web</label>
+                            <input type="date" class="form-control" id="expired_date" name="expired_date"
+                                placeholder="Input expired date" autocomplete="off" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label required" for="about">Tentang Web</label>
+                            <textarea class="form-control" name="about" id="about" rows="6" placeholder="input deskripsi web" required></textarea>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
@@ -187,9 +196,18 @@
                                 placeholder="Input start date" autocomplete="off">
                         </div>
                         <div class="mb-3">
-                            <label class="form-label" for="end_dat_edite">Tanggal Selesai</label>
+                            <label class="form-label" for="end_date_edit">Tanggal Selesai</label>
                             <input type="date" class="form-control" id="end_date_edit" name="end_date"
                                 placeholder="Input end date" autocomplete="off">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label required" for="expired_date_edit">Tanggal Expired Web</label>
+                            <input type="date" class="form-control" id="expired_date_edit" name="expired_date"
+                                placeholder="Input expired date" autocomplete="off" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label required" for="about_edit">Tentang Web</label>
+                            <textarea class="form-control" name="about" id="about_edit" rows="6" placeholder="input deskripsi web" required></textarea>
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -219,6 +237,8 @@
                 var election_type_id = $(e.relatedTarget).data('election_type_id');
                 var start_date = $(e.relatedTarget).data('start_date');
                 var end_date = $(e.relatedTarget).data('end_date');
+                var expired_date = $(e.relatedTarget).data('expired_date');
+                var about = $(e.relatedTarget).data('about');
 
                 document.getElementById("editForm").action = url;
                 $('#party_id_edit').val(party_id);
@@ -227,6 +247,8 @@
                 $('#election_type_id_edit').val(election_type_id);
                 $('#start_date_edit').val(start_date);
                 $('#end_date_edit').val(end_date);
+                $('#expired_date_edit').val(expired_date);
+                $('#about_edit').val(about);
             });
         });
     </script>

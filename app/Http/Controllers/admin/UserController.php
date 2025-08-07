@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\DataTables\UserDataTable;
 use App\Http\Controllers\Controller;
 use App\Models\Gender;
+use App\Models\Project;
 use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -37,11 +38,13 @@ class UserController extends Controller
         $user = User::where('uuid', $uuid)->firstOrFail();
         $gender = Gender::all();
         $role = Role::all();
+        $project = Project::all();
 
         return view('pages.admin.user.edit', compact([
             'user',
             'gender',
             'role',
+            'project',
         ]));
     }
 
@@ -57,6 +60,7 @@ class UserController extends Controller
             ],
             "gender_id" => "required|numeric|exists:gender,id",
             "role_id" => "required|numeric|exists:role,id",
+            "project_id" => "nullable|numeric|exists:projects,id",
         ]);
 
         $user->update($data);

@@ -7,11 +7,21 @@ use App\Http\Controllers\Controller;
 use App\Models\Desa;
 use App\Models\Project;
 use App\Models\Visit;
+use App\Models\VisitPhoto;
 use App\Models\VisitType;
+use App\Services\ImageUploadService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class VisitController extends Controller
 {
+    protected $imageUploadService;
+
+    public function __construct(ImageUploadService $imageUploadService)
+    {
+        $this->imageUploadService = $imageUploadService;
+    }
+
     public function index(VisitDataTable $dataTable)
     {
         $visit_type = VisitType::orderBy('name', 'ASC')->get();
@@ -31,7 +41,7 @@ class VisitController extends Controller
 
     public function store(Request $request)
     {
-        $data = $request->validate([
+        $rawData = $request->validate([
             'visit_type_id' => 'numeric|required',
             'name' => 'string|required',
             'project_id' => 'numeric|required',
@@ -41,7 +51,31 @@ class VisitController extends Controller
             'remark' => 'string|nullable',
         ]);
 
-        Visit::updateOrCreate($data, $data);
+        $request->validate([
+            'photo' => 'required|file|image',
+        ]);
+
+        $data = Visit::updateOrCreate($rawData, $rawData);
+
+        if ($request->hasFile('photo')) {
+            $photoPath = $this->imageUploadService->uploadPhoto(
+                $request->file('photo'),
+                'photo/visit/', // Path untuk photo
+                400
+            );
+
+            foreach($data->visit_photos as $photo) {
+                Storage::delete($photo->photo);
+
+                // Update path photo di database
+                VisitPhoto::updateOrCreate([
+                    'visit_id' => $data->id,
+                ], [
+                    'visit_id' => $data->id,
+                    'photo' => $photoPath
+                ]);
+            }
+        }
 
         return redirect()->route('visit.index')->withNotify('Data berhasil ditambahkan');
     }

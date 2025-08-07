@@ -113,6 +113,13 @@ Adding 'smini-visible-block' to an element will show it (display: block) only wh
                         <span class="nav-main-link-name">Isu-isu</span>
                     </a>
                 </li>
+                <li class="nav-main-item">
+                    <a class="nav-main-link{{ request()->is('request*') ? ' active' : '' }}"
+                        href="{{ route('request.index') }}">
+                        <i class="nav-main-link-icon fa fa-question-circle"></i>
+                        <span class="nav-main-link-name">Request</span>
+                    </a>
+                </li>
 
                 {{-- <li class="nav-main-heading">Pelayanan</li> --}}
                 {{-- @Admin

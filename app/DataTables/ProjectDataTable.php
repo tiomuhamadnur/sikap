@@ -27,7 +27,16 @@ class ProjectDataTable extends DataTable
                                     </button>
 
                                     <div class='dropdown-menu dropdown-menu-end'>
-                                        <a class='dropdown-item' href='#' data-bs-toggle='modal' data-bs-target='#editModal' data-url='{$editRoute}' data-party_id='{$item->party_id}' data-periode_id='{$item->periode_id}' data-profile_id='{$item->profile_id}' data-election_type_id='{$item->election_type_id}' data-start_date='{$item->start_date}' data-end_date='{$item->end_date}'>
+                                        <a class='dropdown-item' href='#' data-bs-toggle='modal' data-bs-target='#editModal'
+                                        data-url='{$editRoute}'
+                                        data-party_id='{$item->party_id}'
+                                        data-periode_id='{$item->periode_id}'
+                                        data-profile_id='{$item->profile_id}'
+                                        data-election_type_id='{$item->election_type_id}'
+                                        data-start_date='{$item->start_date}'
+                                        data-end_date='{$item->end_date}'
+                                        data-expired_date='{$item->expired_date}'
+                                        data-about='{$item->about}'>
                                             <i class='fa fa-pencil'></i>
                                             Edit
                                         </a>
@@ -93,6 +102,7 @@ class ProjectDataTable extends DataTable
             Column::make('election_type.name')->title('Tipe Pemilihan')->sortable(false),
             Column::make('start_date')->title('Tanggal Mulai'),
             Column::make('end_date')->title('Tanggal Selesai'),
+            Column::make('expired_date')->title('Tanggal Expired'),
         ];
     }
 
